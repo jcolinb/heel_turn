@@ -1,0 +1,25 @@
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 15vh;
+    background-color: black;
+}
+
+#header img {
+    height: 100%;
+}
+
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    color: white;
+    font-family: Verdana,sans;
+    font-size: 3em;
+}
+
+#cont {
+    height: 85vh;
+}
