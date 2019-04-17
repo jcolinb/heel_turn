@@ -20,6 +20,20 @@
     font-size: 3em;
 }
 
+.pic-box {
+    margin: 2%;
+    min-height: 200px;
+    min-width: 200px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 #cont {
-    height: 85vh;
+    background-color: black;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
