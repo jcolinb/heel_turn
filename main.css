@@ -1,8 +1,15 @@
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
 #header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 15vh;
+    min-height: 15%;
+    max-height: 100px;
     background-color: black;
 }
 
@@ -20,6 +27,24 @@
     font-size: 3em;
 }
 
+#overlay {
+    position: fixed;
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.info {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
 .pic-box {
     margin: 2%;
     min-height: 200px;
@@ -29,9 +54,29 @@
     background-repeat: no-repeat;
 }
 
+.hidden {
+    height: 100%;
+    display: none;
+}
+
+.shown {
+    height: 100%;
+    display: flex;
+}
+
+#album-frame {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: space-evenly;
+    position: fixed;
+    border-radius: 5px;
+}
+
 #cont {
     background-color: black;
-    min-height: 85vh;
+    min-height: 85%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

@@ -1,7 +1,7 @@
 import {list} from './es_liszt.js'
 
 export const album_list = list
-({cover:'assets/Bloody_Show.jpg',band:'Bloody Show',title:''})
+({cover:'assets/Bloody_Show.jpg',band:'Bloody Show',title:'an album'})
 ({cover:'assets/Burning_Itch.jpg',band:'Burning Itch',title:''})
 ({cover:'assets/Choke_Chains.jpg',band:'Choke Chains',title:''})
 ({cover:'assets/Dan_Melchior.jpg',band:'Dan Melchior Group',title:''})

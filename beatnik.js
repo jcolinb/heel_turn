@@ -40,3 +40,4 @@ export const empty = (cont) => (!cont.firstChild)
 
 export const replace = (host) => (now) => (next) =>
   host.replaceChild(next,now) && host
+
