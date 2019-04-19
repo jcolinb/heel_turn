@@ -7,13 +7,19 @@ import {album} from './views.js'
 const cont = document.getElementById('cont')
 const overlay = document.getElementById('overlay')
 
-const listener = (host) => (cover,band,title) => (el) => {
+const log = () => (state) => map(({title})=>console.log(title))(state())
+
+const state = init(list,log)
+
+const add_to_cart = (obj) => state.set(state.get()(obj))
+
+const listener = (host) => (obj) => (el) => {
   el.addEventListener('click',()=> {
-    append(add_class('shown')(empty(host)))(album(cover,band,title))
+    append(add_class('shown')(empty(host)))(album(host)(add_to_cart)(obj))
   })
   return el
 }
 
-const state = init(list)
 
-map(({cover,band,title}) => append(cont)(listener(overlay)(cover,band,title)(pic_box(cover))))(album_list())
+
+map((obj) => append(cont)(listener(overlay)(obj)(pic_box(obj.cover))))(album_list())

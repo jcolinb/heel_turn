@@ -1,4 +1,27 @@
 import {append,series,put} from './beatnik.js'
 import {container,pic_box,lor_ip,text_box,add_class} from './elemental.js'
 
-export const album = (cover,band,title) => put(put(text_box(title))(append(lor_ip('info'))(text_box(band))))(put(pic_box(cover))(container('album-frame')))
+const closer = (host) => {
+  const x = add_class('x')(text_box('X'))
+  x.addEventListener('click',()=>host.className = 'hidden')
+  return x
+}
+
+const cart_button = (fn) => (obj) => {
+  const button = document.createElement('button')
+  button.addEventListener('click',()=>fn(obj))
+  return button
+}
+
+export const album = (host) => (add_to_cart)=> ({cover,band,title,info,price}) => series
+(container)
+(put(pic_box(cover)))
+(put(series
+     (lor_ip)
+     (put(text_box(band)))
+     (put(text_box(title)))
+     (put(cart_button(add_to_cart)({band,title,price})))
+     ()('info')))
+(put(closer(host)))
+()('album-frame')
+
