@@ -20,6 +20,4 @@ const listener = (host) => (obj) => (el) => {
   return el
 }
 
-
-
 map((obj) => append(cont)(listener(overlay)(obj)(pic_box(obj.cover))))(album_list())

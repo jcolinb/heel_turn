@@ -9,6 +9,7 @@ const closer = (host) => {
 
 const cart_button = (fn) => (obj) => {
   const button = document.createElement('button')
+  button.textContent= 'add to cart'
   button.addEventListener('click',()=>fn(obj))
   return button
 }
