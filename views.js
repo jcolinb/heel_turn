@@ -1,5 +1,6 @@
 import {append,series,put} from './beatnik.js'
 import {container,pic_box,lor_ip,text_box,add_class} from './elemental.js'
+import {reduce} from './es_liszt.js'
 
 const closer = (host) => {
   const x = add_class('x')(text_box('X'))
@@ -12,6 +13,11 @@ const cart_button = (fn) => (obj) => {
   button.textContent= 'add to cart'
   button.addEventListener('click',()=>fn(obj))
   return button
+}
+
+export const cart = (host) => (basket) => {
+  const add_item = (p,{band,title}) => append(p)(text_box(`${band} : ${title}`))
+  append(host)(put(closer(host))(reduce(add_item,container('cart-frame'))(basket())))
 }
 
 export const album = (host) => (add_to_cart)=> ({cover,band,title,info,price}) => series

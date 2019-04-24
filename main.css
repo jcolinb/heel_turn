@@ -29,6 +29,13 @@ body {
     font-size: 3em;
 }
 
+#cart-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
 #overlay {
     position: fixed;
     z-index: 1;
@@ -95,6 +102,18 @@ body {
 #album-frame .pic-box {
     min-width: 50%;
     min-height: 80%;
+}
+
+#cart-frame {
+    height: 75%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,0.84);
+    justify-content: flex-start;
+    position: fixed;
+    border-radius: 10px;
 }
 
 #cont {
