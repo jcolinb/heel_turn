@@ -1,5 +1,5 @@
 import {init,append,parallel,series,put,empty} from './beatnik.js'
-import {list,map,filter} from './es_liszt.js'
+import {first,list,map,filter} from './es_liszt.js'
 import {album_list} from './catalog.js'
 import {pic_box,add_class,text_box} from './elemental.js'
 import {album,cart} from './views.js'
@@ -20,7 +20,8 @@ const album_listener = (host) => (obj) => (el) => {
 }
 
 cart_button.addEventListener('click',() => {
-  append(add_class('shown')(empty(overlay)))(cart(overlay)(state.get()))
+  first(state.get()()) && append(add_class('shown')(empty(overlay)))(cart(overlay)(state.get()))
 })
 
 map((obj) => append(cont)(album_listener(overlay)(obj)(pic_box(obj.cover))))(album_list())
+
