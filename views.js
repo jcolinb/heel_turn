@@ -16,20 +16,36 @@ const cart_button = (fn) => (obj) => {
 }
 
 export const cart = (host) => (basket) => {
-  const total = (ls) => text_box(reduce((a,{price})=>a+price,0)(basket()))
-  const add_item = (p,{band,title,price}) => append(p)(text_box(`${band} : ${title} $${price}`))
+  const total = (ls) => text_box(`$${reduce((a,{price})=>a+price,0)(basket())}`)
+  const add_item = (p,{band,title,price,cover}) => append(p)(
+        series
+  (lor_ip)
+  (put(pic_box(cover)))
+  (put(series
+       (lor_ip)
+       (put(text_box(band)))
+       (put(text_box(title)))
+       ()('band-title')
+      ))
+  (put(text_box(`$${price}`)))
+  ()('cart-item'))
   append(host)(put(closer(host))(put(total(basket()))(reduce(add_item,container('cart-frame'))(basket()))))
 }
 
-export const album = (host) => (add_to_cart)=> ({cover,band,title,info,price}) => series
+export const album = (host) => (add_to_cart) => ({cover,band,title,info,price}) => series
 (container)
 (put(pic_box(cover)))
 (put(series
      (lor_ip)
-     (put(text_box(band)))
-     (put(text_box(title)))
-     (put(cart_button(add_to_cart)({band,title,price})))
+     (put(series
+          (lor_ip)
+          (put(text_box(band)))
+          (put(text_box(title)))
+          ()('band-title')
+         ))
+     (put(cart_button(add_to_cart)({band,title,price,cover})))
      ()('info')))
 (put(closer(host)))
 ()('album-frame')
+
 
