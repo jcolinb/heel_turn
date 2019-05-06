@@ -16,19 +16,20 @@ const cart_button = (fn) => (obj) => {
 }
 
 export const cart = (host) => (basket) => {
-  const total = (ls) => text_box(`$${reduce((a,{price})=>a+price,0)(basket())}`)
+  const total = (ls) => text_box(`total: $${reduce((a,{price})=>a+price,0)(basket())}`)
   const add_item = (p,{band,title,price,cover}) => append(p)(
-        series
-  (lor_ip)
-  (put(pic_box(cover)))
-  (put(series
-       (lor_ip)
-       (put(text_box(band)))
-       (put(text_box(title)))
-       ()('band-title')
-      ))
-  (put(text_box(`total: $${price}`)))
-  ()('cart-item'))
+    series
+    (lor_ip)
+    (put(pic_box(cover)))
+    (put(series
+         (lor_ip)
+         (put(text_box(band)))
+         (put(text_box(title)))
+         ()('band-title')
+        ))
+    (put(text_box(`total: $${price}`)))
+    ()('cart-item'))
+  
   append(host)(put(closer(host))(put(total(basket()))(reduce(add_item,container('cart-frame'))(basket()))))
 }
 
