@@ -27,7 +27,7 @@ export const cart = (host) => (basket) => {
          (put(text_box(title)))
          ()('band-title')
         ))
-    (put(text_box(`total: $${price}`)))
+    (put(text_box(`$${price}`)))
     ()('cart-item'))
   
   append(host)(put(closer(host))(put(total(basket()))(reduce(add_item,container('cart-frame'))(basket()))))
